@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bold Siren Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #87ceeb, #ffd7be, #c9e4ca);
+        }
+
+        .das_btn{
+            text-decoration: none;
+            color: #198ed6;
+            font-weight: bold;
+        }
+        .das_btn:hover{
+            color: #24bb27;
+           
+        }
+        .nav-bar {
+            background-color: #333;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 20px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .nav-bar a:hover {
+            color: #ddd;
+        }
+        .dashboard-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .dashboard-container p{
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #6c5ce7;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        h2{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-button {
+            width: 48%;
+            padding: 15px;
+            background-color: #0e485e;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-button img.icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .feature-button:hover {
+            background-color: #45f948;
+            transform: translateY(-3px);
+        }
+        .feature-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .feature-button:hover::after {
+            opacity: 1;
+        }
+        .dashboard-section {
+            margin-bottom: 40px;
+        }
+        .dashboard-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        i{
+          margin-right:20px;  
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="#">Dashboard</a>
+        <a href="#">Settings</a>
+        <a href="#">Help</a>
+    </div>
+    <div class="dashboard-container">
+        <h1>Bold Siren Dashboard</h1>
+        <p>Welcome to the Women Safety Dashboard. Choose an action below to get started.</p>
+        
+        <div class="dashboard-section">
+            <h2>Quick Actions</h2>
+            <div class="button-container">
+                <!-- <button class="feature-button" onclick="getUserLocation()">
+                    <img src="map-location-solid.svg" class="icon"> Check Live Location
+                </button> -->
+                <a href="http://localhost:8080/posts/live" class="das_btn">Check Live Location</a>
+                <!-- <button class="feature-button" onclick="startVoiceDetection()">
+                    <img src="microphone-solid.svg" class="icon"> Live frequency alert
+                </button> -->
+                <a href="http://localhost:8080/posts/frequency" class="das_btn"> Live frequency alert</a>
+                <!-- <button class="feature-button" onclick="sendSOS()">
+                    <img src="sos.png" class="icon"> Send SOS Alert
+                </button> -->
+                <a href="http://localhost:8080/posts/sos" class="das_btn"> Send SOS Alert</a>
+                <!-- <button class="feature-button" onclick="viewSafetyTips()">
+                    <img src="password.png" class="icon"> Submit OTP
+                </button> -->
+                <a href="http://localhost:8080/posts/otp" class="das_btn">Submit OTP</a>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2> Reports and Statistics</h2>
+            <div class="button-container">
+                <button class="feature-button" onclick="reportIncident()">
+                    <i class="fa-regular fa-chart-bar"></i> Report Incident
+                </button>
+                <button class="feature-button" onclick="viewStatistics()">
+                    <i class="fa-solid fa-chart-line"></i>  View Statistics
+                </button>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Resources</h2>
+            <div class="button-container">
+                <button class="feature-button" onclick="viewResources()">
+                    <i class="fa-solid fa-gears"></i>  View Resources
+                </button>
+                <button class="feature-button" onclick="contactSupport()">
+                    <i class="fa-solid fa-square-phone"></i>  Contact Support
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+
+</body>
+</html>
